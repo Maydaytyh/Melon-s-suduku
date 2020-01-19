@@ -21,7 +21,6 @@ public:
 	int num_use[9];
 	int offset[8] = { 3,6,1,4,7,2,5,8 };
 	int sudoku[10][10];
-	bool ok = false;
 	void print()
 	{	
 		//0 1 2 
@@ -54,7 +53,7 @@ public:
 				sudoku[i][j] = Num[i][j];
 			}
 	}
-	void generate_final(int num_of_sudoku)
+	bool  generate_final(int num_of_sudoku)
 	{
 		//cout << "开始了!" << endl;
 		sudoku[0][0] = 5;
@@ -75,7 +74,7 @@ public:
 				}
 			}
 			print();
-			if (nn > num_of_sudoku) return;
+			if (nn > num_of_sudoku) return true;
 			Sudoku tmpSudoku;
 			int sudoku_1[9][9];
 			//接着构造
@@ -99,10 +98,11 @@ public:
 					}
 					tmpSudoku.print();
 
-					if (nn > num_of_sudoku) return;
+					if (nn > num_of_sudoku) return true;
 				} while (next_permutation(num_3, num_3 + 3));
 			} while (next_permutation(num_2, num_2 + 3));
 		} while (next_permutation(num, num + 8));
+		return false;
 	}
 	///判断行和列是否满足
 	bool row_column(int x, int y, int num)
@@ -187,36 +187,30 @@ bool get(char* num, int& n)
 }
 void PrintAns()
 {
+	//char s[200000000];
+
 	for (int i = 1; i < nn; ++i)
 	{
 		//cout << "ID=" << i << endl;
 		for (int j = 0; j < 9; ++j)
 		{
-
-			//printf("%s\n", sudodo[i][j]);
-		/*	for (int k = 0; k < 18; ++k)
-		{*/
 				printf("%s", sudodo[i][j]);
-				//putchar(sudodo[i][j][k]);
-				//putchar(' ');
-		//	}
-			//putchar('\n');
-			/*putchar(sudodo[i][j][8]);
-			putchar('\n');*/
-			/*printf("%c\n", sudodo[i][j][8]);*/
+				//strcat(s, sudodo[i][j]);
 		}
+		//strcat(s, "\n");
 		putchar('\n');
 		//puts("");
 	}
+	//printf("%s", s);
 }
 bool InputCheck(int argc, char** argv)
 {
 	if (argc < 3 || (strcmp(argv[1], "-c") != 0 && strcmp(argv[1], "-s") != 0))
 	{
-		puts("------------------帮助-----------");
-		puts("参数个类型错误，请重新输入！");
+		puts("--------------------------帮助--------------------------");
+		puts("参数的类型错误，请重新输入！");
 		puts("输入参数规范如下");
-		puts("-s 要生成的数独终局的个数n(n>0&&n<=1000000");
+		puts("-s 要生成的数独终局的个数n(n>0&&n<=1000000)");
 		puts("-c 要解决的数独题目的文件路径");
 		return false;
 	}
@@ -226,10 +220,10 @@ bool InputCheck(int argc, char** argv)
 		bool flag = get(argv[2], n);
 		if (n <= 0 || n > 1000000)
 		{
-			puts("------------------帮助-----------");
+			puts("--------------------------帮助--------------------------");
 			puts("您输入的要生成的数独终局个数错误！请重新输入！");
 			puts("输入参数规范如下");
-			puts("-s 要生成的数独终局的个数n(n>0&&n<=1000000");
+			puts("-s 要生成的数独终局的个数n(n>0&&n<=1000000)");
 			puts("-c 要解决的数独题目的文件路径");
 			return false;
 		}
@@ -240,10 +234,10 @@ bool InputCheck(int argc, char** argv)
 		infile.open(argv[2], ios::in);
 		if (!infile.is_open())
 		{
-			puts("------------------帮助-----------");
+			puts("--------------------------帮助--------------------------");
 			puts("您输入的文件路径无法打开！请重新输入！");
 			puts("输入参数规范如下");
-			puts("-s 要生成的数独终局的个数n(n>0&&n<=1000000");
+			puts("-s 要生成的数独终局的个数n(n>0&&n<=1000000)");
 			puts("-c 要解决的数独题目的文件路径");
 			return false;
 		}
