@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "suduku", "suduku.vcxproj", "{4959C8BA-C764-4C5F-BCB7-D9DEEA4821EB}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "..\UnitTest\UnitTest.vcxproj", "{5130EFAF-20DF-4619-A7FA-CEBE9F38ADE8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{4959C8BA-C764-4C5F-BCB7-D9DEEA4821EB}.Release|x64.Build.0 = Release|x64
 		{4959C8BA-C764-4C5F-BCB7-D9DEEA4821EB}.Release|x86.ActiveCfg = Release|Win32
 		{4959C8BA-C764-4C5F-BCB7-D9DEEA4821EB}.Release|x86.Build.0 = Release|Win32
+		{5130EFAF-20DF-4619-A7FA-CEBE9F38ADE8}.Debug|x64.ActiveCfg = Debug|x64
+		{5130EFAF-20DF-4619-A7FA-CEBE9F38ADE8}.Debug|x64.Build.0 = Debug|x64
+		{5130EFAF-20DF-4619-A7FA-CEBE9F38ADE8}.Debug|x86.ActiveCfg = Debug|Win32
+		{5130EFAF-20DF-4619-A7FA-CEBE9F38ADE8}.Debug|x86.Build.0 = Debug|Win32
+		{5130EFAF-20DF-4619-A7FA-CEBE9F38ADE8}.Release|x64.ActiveCfg = Release|x64
+		{5130EFAF-20DF-4619-A7FA-CEBE9F38ADE8}.Release|x64.Build.0 = Release|x64
+		{5130EFAF-20DF-4619-A7FA-CEBE9F38ADE8}.Release|x86.ActiveCfg = Release|Win32
+		{5130EFAF-20DF-4619-A7FA-CEBE9F38ADE8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
